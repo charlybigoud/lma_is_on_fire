@@ -479,6 +479,11 @@ namespace lma
       fonction_container.add(f);
     }
     
+    template<typename T> struct CreateMap
+    {
+      typedef std::map<T,ttt::Indice<T>> type;
+    };
+
     bool is_updated = false;
     void update()
     {
@@ -489,7 +494,7 @@ namespace lma
                                                           ListeParam,
                                                           bf::pair<
                                                                     mpl::_1,
-                                                                    std::map<mpl::_1,ttt::Indice<mpl::_1>>
+                                                                    CreateMap<mpl::_1>
                                                                   >
                                                         >::type
                                 >::type MapAdressParameters;
